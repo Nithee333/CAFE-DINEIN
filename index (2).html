@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naayar Chai – Dine-In Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --chai-brown: #6b3e26;
+      --chai-cream: #fff8ec;
+      --chai-dark: #3b2312;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--chai-cream);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--chai-brown);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      text-align: center;
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--chai-dark);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--chai-brown);
+    }
+
+    button {
+      margin-top: 25px;
+      background-color: var(--chai-brown);
+      color: white;
+      font-weight: bold;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: var(--chai-dark);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Book a Table</h1>
+    <p class="description">Reserve your seat and enjoy your favorite chai at Naayar Chai.</p>
+
+    <form id="bookingForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="phone">Mobile Number</label>
+      <input type="tel" id="phone" placeholder="10-digit number" required>
+
+      <label for="guests">Number of Guests</label>
+      <input type="number" id="guests" placeholder="e.g., 2" min="1" required>
+
+      <label for="date">Booking Date</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Booking Time</label>
+      <input type="time" id="time" required>
+
+      <button type="submit">Confirm via WhatsApp</button>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Naayar Chai. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const guests = document.getElementById("guests").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+
+      const message = `Dine-In Booking Request for Naayar Chai:
+Name: ${name}
+Phone: ${phone}
+Guests: ${guests}
+Date: ${date}
+Time: ${time}`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappNumber = "916374235982";
+      const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      window.open(url, "_blank");
+
+      setTimeout(() => {
+        alert("Booking message opened in WhatsApp. We'll confirm your table shortly. Thank you!");
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
