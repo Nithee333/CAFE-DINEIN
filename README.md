@@ -12,7 +12,7 @@ This is a mobile-friendly dine-in booking page for Naayar Chai, an Indian-style 
 
 ## Live Demo
 
-[Visit the Booking Page](https://yourusername.github.io/naayarchai-booking/)
+[Visit the Booking Page](https://nithee333.github.io/CAFE-DINEIN/)
 
 ## How to Use
 
